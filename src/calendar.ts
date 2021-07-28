@@ -283,6 +283,7 @@ export enum Step {
                 [formatDayTitle]="formatDayTitle"
                 [formatHourColumn]="formatHourColumn"
                 [allDayLabel]="allDayLabel"
+                [dayviewShowAllDay]="dayviewShowAllDay"
                 [hourParts]="hourParts"
                 [hourSegments]="hourSegments"
                 [eventSource]="eventSource"
@@ -382,6 +383,7 @@ export class CalendarComponent implements OnInit {
     @Input() startingDayMonth:number = 0;
     @Input() startingDayWeek:number = 0;
     @Input() allDayLabel:string = 'all day';
+    @Input() dayviewShowAllDay:boolean = true;
     @Input() noEventsLabel:string = 'No Events';
     @Input() queryMode:QueryMode = 'local';
     @Input() step:Step = Step.Hour;

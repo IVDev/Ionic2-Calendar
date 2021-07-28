@@ -36,7 +36,7 @@ import {IDisplayAllDayEvent, IDayViewAllDayEventSectionTemplateContext, IDayView
     template: `
         <ion-slides #daySlider [options]="sliderOptions" [dir]="dir" (ionSlideDidChange)="onSlideChanged()" class="slides-container">
             <ion-slide class="slide-container">
-                <div class="dayview-allday-table">
+                <div *ngIf="dayviewShowAllDay" class="dayview-allday-table">
                     <div class="dayview-allday-label">{{allDayLabel}}</div>
                     <div class="dayview-allday-content-wrapper scroll-content">
                         <table class="table table-bordered dayview-allday-content-table">
@@ -96,7 +96,7 @@ import {IDisplayAllDayEvent, IDayViewAllDayEventSectionTemplateContext, IDayView
                 </init-position-scroll>
             </ion-slide>
             <ion-slide class="slide-container">
-                <div class="dayview-allday-table">
+                <div *ngIf="dayviewShowAllDay" class="dayview-allday-table">
                     <div class="dayview-allday-label">{{allDayLabel}}</div>
                     <div class="dayview-allday-content-wrapper scroll-content">
                         <table class="table table-bordered dayview-allday-content-table">
@@ -156,7 +156,7 @@ import {IDisplayAllDayEvent, IDayViewAllDayEventSectionTemplateContext, IDayView
                 </init-position-scroll>
             </ion-slide>
             <ion-slide class="slide-container">
-                <div class="dayview-allday-table">
+                <div *ngIf="dayviewShowAllDay" class="dayview-allday-table">
                     <div class="dayview-allday-label">{{allDayLabel}}</div>
                     <div class="dayview-allday-content-wrapper scroll-content">
                         <table class="table table-bordered dayview-allday-content-table">
@@ -415,6 +415,7 @@ export class DayViewComponent implements ICalendarComponent, OnInit, OnChanges, 
     @Input() formatHourColumn: string;
     @Input() formatDayTitle: string;
     @Input() allDayLabel: string;
+    @Input() dayviewShowAllDay: boolean;
     @Input() hourParts: number;
     @Input() eventSource: IEvent[];
     @Input() markDisabled: (date: Date) => boolean;
